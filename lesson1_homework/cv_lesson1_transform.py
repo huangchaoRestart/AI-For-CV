@@ -103,7 +103,7 @@ class image_transform:
         return self.img_warp
 
 
-path = "pic/lesson1/doggy.jpg"
+path = "../pic/lesson1/doggy.jpg"
 transform = image_transform(path)
 # crop
 image_cropped = transform.crop(transform.image, 2 / 3, 2 / 3)
