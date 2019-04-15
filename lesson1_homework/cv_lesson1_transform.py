@@ -95,8 +95,8 @@ class image_transform:
         dx4 = np.random.randint(-random_margin, random_margin)
         dy4 = np.random.randint(height - random_margin - 1, height - 1)
 
-        pts1 = np.float32([[x1, y1], [x2, y2], [x3, y3], [x4, y4]])
-        pts2 = np.float32([[dx1, dy1], [dx2, dy2], [dx3, dy3], [dx4, dy4]])
+        pts1 = (np.float32([[x1, y1], [x2, y2], [x3, y3], [x4, y4]]))
+        pts2 = (np.float32([[dx1, dy1], [dx2, dy2], [dx3, dy3], [dx4, dy4]]))
         M = cv2.getPerspectiveTransform(pts1, pts2)
         print("perspective M={}".format(M))
         self.img_warp = cv2.warpPerspective(image, M, (width, height))
