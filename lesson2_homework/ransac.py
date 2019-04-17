@@ -85,10 +85,9 @@ def computePerspectiveM(A,B, iterNum=200, learning_rate=0.01):
         h2[1] -= learning_rate * dh21
     return np.array((h0,h1,h2))
 
-def ransacMatching(A, B, K=30, thres=3):
+def ransacMatching(A, B, K=30, thres=3,learning_rate=0.01,iterNum=200):
     A=np.array(A)
     B=np.array(B)
-    K=len(A)/2
     maxInlinerNum=0
     for k in range(K):
         #随机选择4对点
@@ -110,7 +109,7 @@ def ransacMatching(A, B, K=30, thres=3):
         #如果内点大于历史最佳内点数，重新计算所有内点的投影矩阵
         if inlinerNum>maxInlinerNum:
             maxInlinerNum=inlinerNum
-            bestM=computePerspectiveM(A[inlinerIndex],B[inlinerIndex],iterNum=200,learning_rate=0.01)
+            bestM=computePerspectiveM(A[inlinerIndex],B[inlinerIndex],iterNum,learning_rate)
 
     #返回最佳投影矩阵
     return bestM
