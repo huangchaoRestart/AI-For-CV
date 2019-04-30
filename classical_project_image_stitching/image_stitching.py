@@ -9,6 +9,7 @@ methods:
 
 import cv2
 import numpy as np
+import profile
 
 class image_stitching:
     #读取待拼接的两张图片
@@ -93,9 +94,12 @@ class image_stitching:
                 cv2.destroyAllWindows()
 
 
-
-if __name__=="__main__":
+def run_image():
     image_st=image_stitching(show_pic=False)
     image_st.sift_detect(show_pic=True)
     match_num=image_st.sift_match(ratio=0.5,show_pic=True)
     image_st.find_homography(match_num,show_pic=True)
+
+if __name__=="__main__":
+    profile.run("run_image()")
+
