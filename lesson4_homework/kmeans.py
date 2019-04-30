@@ -7,6 +7,11 @@ considering:
 3.configure init_num param for run_kms(),
   it will again choose initial blobs to cluster for at most init_num times ,if current initial blobs can't converge
 4. run_kms() considered compatible with multiple num of cluster center and blobs features
+
+summary:
+1. if A and B is list or array,then have to distinct a=b and a=np.copy(b),if a=b,then a and b connect to the same memory
+2. learned to use exception
+3. make the best of assert to ensure correctness in the whole procedure
 '''
 
 import numpy as np
